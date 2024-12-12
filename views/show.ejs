@@ -1,44 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Specific Makeup</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-light">
-    <div class="container mt-5">
-        <h1 class="text-center mb-4">View Specific Makeup</h1>
-        <div class="card p-4">
-            <form>
-                <div class="mb-3">
-                    <label for="identifier" class="form-label">Makeup ID:</label>
-                    <input type="text" class="form-control" id="identifier" value="<%= makeup.id %>" disabled>
-                </div>
-                <div class="mb-3">
-                    <label for="name" class="form-label">Makeup Name:</label>
-                    <input type="text" class="form-control" id="name" value="<%= makeup.name %>" disabled>
-                </div>
-                <div class="mb-3">
-                    <label for="category" class="form-label">Makeup Category:</label>
-                    <input type="text" class="form-control" id="category" value="<%= makeup.category %>" disabled>
-                </div>
-                <div class="mb-3">
-                    <label for="quantity" class="form-label">Makeup Quantity:</label>
-                    <input type="number" class="form-control" id="quantity" value="<%= makeup.quantity %>" disabled>
-                </div>
-                <div class="mb-3">
-                    <label for="price" class="form-label">Makeup Price:</label>
-                    <input type="number" class="form-control" id="price" value="<%= makeup.price %>" disabled>
-                </div>
-                <div class="mb-3">
-                    <label for="description" class="form-label">Makeup Description:</label>
-                    <textarea class="form-control" id="description" rows="4" disabled><%= makeup.description %></textarea>
-                </div>
-                <a href="/makeups" class="btn btn-secondary">View All Makeups</a>
-            </form>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Title of the page -->
+        <title>View Specific Makeup</title>
+
+        <!-- Linking Bootstrap CSS for styling -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Linking Google Fonts for custom fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+        <style>
+            * {
+                font-family: "Poppins", sans-serif; 
+            }
+
+            h1 {
+                font-weight: bold;
+                font-size: 2rem; 
+            }
+
+            body {
+                font-size: 15.5px; 
+            }
+
+            .btn-primary {
+                background-color: #c3146b !important; 
+                border-color: #c3146b !important; 
+            }
+            
+            .btn-primary:hover {
+                background-color: #DA7297 !important; 
+                border-color: #DA7297 !important; 
+            }
+
+            .btn-secondary {
+                background-color: #FF748B !important; 
+                border-color: #FF748B !important; 
+            }
+
+            .btn-secondary:hover {
+                background-color: #f99dac !important; 
+                border-color: #f99dac !important; 
+            }
+
+            .card {
+                background-color: pink !important; 
+                border-radius: 10px; 
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+            }
+
+            .form-label {
+                font-weight: bold; 
+            }
+
+        </style>
+    </head>
+    <body class="bg-light"> 
+
+        <div class="container mt-5">
+            <!-- Main heading for the page -->
+            <h1 class="text-center mb-4">View Specific Makeup</h1>
+
+            <div class="card p-4">
+                <!-- Form to display makeup details -->
+                <form>
+                    <!-- Makeup ID input field -->
+                    <div class="mb-3">
+                        <label for="identifier" class="form-label">Makeup ID:</label>
+                        <input type="text" class="form-control" id="identifier" value="<%= makeup.id %>" disabled>
+                    </div>
+
+                    <!-- Makeup Name input field -->
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Makeup Name:</label>
+                        <input type="text" class="form-control" id="name" value="<%= makeup.name %>" disabled>
+                    </div>
+
+                    <!-- Makeup Category input field -->
+                    <div class="mb-3">
+                        <label for="category" class="form-label">Makeup Category:</label>
+                        <input type="text" class="form-control" id="category" value="<%= makeup.category %>" disabled>
+                    </div>
+
+                    <!-- Makeup Quantity input field -->
+                    <div class="mb-3">
+                        <label for="quantity" class="form-label">Makeup Quantity:</label>
+                        <input type="number" class="form-control" id="quantity" value="<%= makeup.quantity %>" disabled>
+                    </div>
+
+                    <!-- Makeup Price input field -->
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Makeup Price:</label>
+                        <input type="number" class="form-control" id="price" value="<%= makeup.price %>" disabled>
+                    </div>
+
+                    <!-- Makeup Description textarea -->
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Makeup Description:</label>
+                        <textarea class="form-control" id="description" rows="4" disabled><%= makeup.description %></textarea>
+                    </div>
+
+                    <!-- Button to navigate back to the list of all makeup items -->
+                    <a href="/makeups" class="btn btn-secondary">View All</a>
+                </form>
+            </div>
         </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+
+        <!-- Bootstrap JS for interactive elements like buttons -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>
