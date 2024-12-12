@@ -1,71 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Makeup</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-light">
-    <div class="container mt-5">
-        <h1 class="text-center mb-4">Edit Makeup</h1>
-        <div class="card p-4">
-            <form action="/makeups/<%= makeup._id %>/edit?_method=PATCH" method="POST" id="editMakeupForm">
-                <div class="mb-3">
-                    <label for="identifier" class="form-label">Makeup ID:</label>
-                    <input type="text" class="form-control" id="identifier" value="<%= makeup.id %>" disabled>
-                </div>
-                <div class="mb-3">
-                    <label for="name" class="form-label">Makeup Name:</label>
-                    <input type="text" class="form-control" id="name" name="name" value="<%= makeup.name %>" required>
-                </div>
-                <div class="mb-3">
-                    <label for="category" class="form-label">Makeup Category:</label>
-                    <input type="text" class="form-control" id="category" name="category" value="<%= makeup.category %>" required>
-                </div>
-                <div class="mb-3">
-                    <label for="quantity" class="form-label">Makeup Quantity:</label>
-                    <input type="number" class="form-control" id="quantity" name="quantity" value="<%= makeup.quantity %>" required>
-                </div>
-                <div class="mb-3">
-                    <label for="price" class="form-label">Makeup Price:</label>
-                    <input type="number" class="form-control" id="price" name="price" value="<%= makeup.price %>" required>
-                </div>
-                <div class="mb-3">
-                    <label for="description" class="form-label">Makeup Description:</label>
-                    <textarea class="form-control" id="description" name="description" rows="4" required><%= makeup.description %></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary" id="updateButton" disabled>UPDATE</button>
-                <a href="/makeups" class="btn btn-secondary">View All Makeups</a>
-            </form>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Title of the webpage -->
+        <title>Edit Makeup</title>
+
+        <!-- Bootstrap CSS for styling -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+        <style>
+            * {
+                font-family: "Poppins", sans-serif;
+            }
+
+            h1 {
+                font-weight: bold;
+                font-size: 2rem;
+            }
+
+            body {
+                font-size: 15.5px;
+            }
+
+            .btn-primary {
+                background-color: #c3146b !important; /* Button background color */
+                border-color: #c3146b !important; /* Button border color */
+            }
+            
+            .btn-primary:hover{
+                background-color: #DA7297 !important; /* Hover background color */
+                border-color: #DA7297 !important; /* Hover border color */
+            }
+
+            .btn-secondary {
+                background-color: #FF748B !important; /* Button background color */
+                border-color: #FF748B !important; /* Button border color */
+            }
+
+            .btn-secondary:hover {
+                background-color: #f99dac !important; /* Hover background color */
+                border-color: #f99dac !important; /* Hover border color */
+            }
+
+            .table-custom {
+                background-color:pink !important; /* Background color */
+                border-radius: 10px; /* Rounded corners */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+            }
+
+            .form-label {
+                font-weight: bold;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div class="container mt-5">
+
+            <!-- Main heading for the page -->
+            <h1 class="text-center mb-4">Edit Makeup</h1>
+
+            <div class="card p-4 table-custom">
+                <!-- Form to edit makeup details -->
+                <form action="/makeups/<%= makeup._id %>/edit?_method=PATCH" method="POST" id="editMakeupForm">
+                    <!-- Makeup ID -->
+                    <div class="mb-3">
+                        <label for="identifier" class="form-label">Makeup ID:</label>
+                        <input type="text" class="form-control" id="identifier" value="<%= makeup.id %>" disabled>
+                    </div>
+                    <!-- Makeup Name -->
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Makeup Name:</label>
+                        <input type="text" class="form-control" id="name" name="name" value="<%= makeup.name %>" required>
+                    </div>
+                    <!-- Makeup Category -->
+                    <div class="mb-3">
+                        <label for="category" class="form-label">Makeup Category:</label>
+                        <input type="text" class="form-control" id="category" name="category" value="<%= makeup.category %>" required>
+                    </div>
+                    <!-- Makeup Quantity -->
+                    <div class="mb-3">
+                        <label for="quantity" class="form-label">Makeup Quantity:</label>
+                        <input type="number" class="form-control" id="quantity" name="quantity" value="<%= makeup.quantity %>" required>
+                    </div>
+                    <!-- Makeup Price -->
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Makeup Price:</label>
+                        <input type="number" class="form-control" id="price" name="price" value="<%= makeup.price %>" required>
+                    </div>
+                    <!-- Makeup Description -->
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Makeup Description:</label>
+                        <textarea class="form-control" id="description" name="description" rows="4" required><%= makeup.description %></textarea>
+                    </div>
+                    <!-- Submit button and view all link -->
+                    <button type="submit" class="btn btn-primary" id="updateButton" disabled>UPDATE</button>
+                    <a href="/makeups" class="btn btn-secondary">View All</a>
+                </form>
+            </div>
         </div>
-    </div>
-    <script>
-        const form = document.getElementById('editMakeupForm');
-        const updateButton = document.getElementById('updateButton');
 
-        const initialData = {
-            name: form.name.value,
-            category: form.category.value,
-            quantity: form.quantity.value,
-            price: form.price.value,
-            description: form.description.value
-        };
+        <script>
+            // Get form and button elements
+            const form = document.getElementById('editMakeupForm');
+            const updateButton = document.getElementById('updateButton');
 
-        const isFormChanged = () => {
-            return (
-                form.name.value !== initialData.name ||
-                form.category.value !== initialData.category ||
-                form.quantity.value !== initialData.quantity ||
-                form.price.value !== initialData.price ||
-                form.description.value !== initialData.description
-            );
-        };
+            // Store initial form data for comparison
+            const initialData = {
+                name: form.name.value,
+                category: form.category.value,
+                quantity: form.quantity.value,
+                price: form.price.value,
+                description: form.description.value
+            };
 
-        form.addEventListener('input', () => {
-            updateButton.disabled = !isFormChanged();
-        });
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+            // Check if form data has changed
+            const isFormChanged = () => {
+                return (
+                    form.name.value !== initialData.name ||
+                    form.category.value !== initialData.category ||
+                    form.quantity.value !== initialData.quantity ||
+                    form.price.value !== initialData.price ||
+                    form.description.value !== initialData.description
+                );
+            };
+
+            // Enable update button only if form data has changed
+            form.addEventListener('input', () => {
+                updateButton.disabled = !isFormChanged();
+            });
+        </script>
+
+        <!-- Bootstrap JS for interactive components -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>
